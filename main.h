@@ -29,6 +29,7 @@ char *read_input(void);
 void execute_command(char *input, char **env);
 int tokenize_input(char *input, char *args[]);
 int handle_builtin_commands(char **args, int num_args, char *input, char **env);
+void call_and_execute(char *args[]);
 
 /* GLOBAL VAR*/
 extern char **environ;
