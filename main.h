@@ -6,12 +6,17 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <stddef.h>
+#include <signal.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
 #include <errno.h>
+#include <sys/types.h>
+#include <fcntl.h>
 #include "main.h" 
 
-/*PROTOTYPES*/ 
+/*PROTOTYPES*/
+void custom_execve(const char *pathname, char *const argv[], char *const envp[]);
 char *get_location(char *command);
 void execmd(char **argv);
 void current_env(char *const envn[]);

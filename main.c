@@ -10,11 +10,17 @@ int main(int ac, char **argv)
     int num_tokens = 0;
     char *token;
     int i;
+    const char *program = "/bin/ls";
+    char *const args[] = { "ls", "-l", NULL };
+    char *const env[] = { NULL };
+    
+    custom_execve(program, args, env);
 
     /* declaring void variables */
     (void)ac;
 
-    /* Create a loop for the shell's prompt */
+    /* Create a loop for the shell's prompt */   
+    
     while (1)
     {
         printf("%s", prompt);
@@ -72,5 +78,5 @@ int main(int ac, char **argv)
     free(lineptr);
 
     return (0);
+}
 
-}   
