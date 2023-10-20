@@ -1,4 +1,4 @@
-#include "main.h" 
+#include "main.h"
 
 /**
  * own_env - function that prints enviroment variables
