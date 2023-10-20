@@ -17,6 +17,7 @@
 
 /*PROTOTYPES*/
 void custom_execve(const char *pathname, char *const argv[], char *const envp[]);
+void execute_env(void); 
 char *get_location(char *command);
 void execmd(char **argv);
 void current_env(char *const envn[]);

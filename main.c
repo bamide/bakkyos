@@ -10,7 +10,7 @@ int main(int ac, char **argv)
     int num_tokens = 0;
     char *token;
     int i;
-    
+     
     /* declaring void variables */
     (void)ac;
 
@@ -18,6 +18,9 @@ int main(int ac, char **argv)
     
     while (1)
     {
+	
+	/* Handle other commands or execute external programs... */
+	
         printf("%s", prompt);
         nchars_read = getline(&lineptr, &n, stdin);
         /* check if the getline function failed or reached EOF or user use CTRL + D */
