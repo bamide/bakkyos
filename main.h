@@ -17,7 +17,12 @@
 
 /*PROTOTYPES*/
 void custom_execve(const char *pathname, char *const argv[], char *const envp[]);
-void execute_env(void); 
+void execute_env(void);
+char *construct_full_path(char *relative_path,char *command);
+char **tokenize_path(char *rep);
+int check_file_exists_and_is_executable(char *file_path);
+char *construct_full_path(char *relative_path,char *command);
+char *path(char *rep,char *command);
 char *get_location(char *command);
 void execmd(char **argv);
 void current_env(char *const envn[]);
