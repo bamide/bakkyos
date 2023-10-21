@@ -2,7 +2,7 @@
 
 int main(int ac, char **argv)
 {
-    char *prompt = "(Eshell) $ ";
+    char *prompt = "(Mshell) $ ";
     char *lineptr = NULL, *lineptr_copy = NULL;
     size_t n = 0;
     ssize_t nchars_read;
@@ -10,7 +10,10 @@ int main(int ac, char **argv)
     int num_tokens = 0;
     char *token;
     int i;
-
+    int status;
+    pid_t child_pid;
+   
+    
     /* Declare void variables */
     (void)ac;
 
@@ -37,12 +40,25 @@ int main(int ac, char **argv)
         
         /* Copy lineptr to lineptr_copy */
         strcpy(lineptr_copy, lineptr);
-
         /********** Split the string (lineptr) into an array of words ********/
         
         /* Calculate the total number of tokens */
         token = strtok(lineptr, delim);
-        
+	child_pid = fork();
+	if(child_pid == -1)
+	{
+	perror("Error:failed to create");
+	exit(41);
+	}
+	if(child_pid == 0)
+	{
+	perror("Error:Failed");
+	exit(7);
+	}
+	else
+	{
+	wait(&status);
+	}
         while (token != NULL)
         {
             num_tokens++;
@@ -55,7 +71,7 @@ int main(int ac, char **argv)
 
         /* Store each token in the argv array */
         token = strtok(lineptr_copy, delim);
-
+        
         for (i = 0; token != NULL; i++)
         {
             argv[i] = malloc(sizeof(char) * strlen(token));
