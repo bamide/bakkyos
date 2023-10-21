@@ -10,9 +10,7 @@ int main(int ac, char **argv)
     int num_tokens = 0;
     char *token;
     int i;
-    int status;
-    pid_t child_pid;
-   
+  
     
     /* Declare void variables */
     (void)ac;
@@ -44,21 +42,7 @@ int main(int ac, char **argv)
         
         /* Calculate the total number of tokens */
         token = strtok(lineptr, delim);
-	child_pid = fork();
-	if(child_pid == -1)
-	{
-	perror("Error:failed to create");
-	exit(41);
-	}
-	if(child_pid == 0)
-	{
-	perror("Error:Failed");
-	exit(7);
-	}
-	else
-	{
-	wait(&status);
-	}
+
         while (token != NULL)
         {
             num_tokens++;
