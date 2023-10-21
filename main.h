@@ -13,11 +13,13 @@
 #include <errno.h>
 #include <sys/types.h>
 #include <fcntl.h>
+#include <stdbool.h>
 #include "main.h"
 
 /*PROTOTYPES*/
 void custom_execve(const char *pathname, char *const argv[], char *const envp[]);
 void execute_env(void);
+void prompt_user(void);
 char *construct_full_path(char *relative_path,char *command);
 char **tokenize_path(char *rep);
 int check_file_exists_and_is_executable(char *file_path);
@@ -44,5 +46,10 @@ void call_and_execute(char *args[]);
 
 /* GLOBAL VAR*/
 extern char **environ;
+
+struct flags
+{
+	bool interactive;
+} flags;
 
 #endif 
