@@ -4,6 +4,7 @@
 /*LIBRARIES*/
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <unistd.h>
 #include <string.h>
 #include <stddef.h>
@@ -20,6 +21,7 @@
 void custom_execve(const char *pathname, char *const argv[], char *const envp[]);
 void execute_env(void);
 void prompt_user(void);
+int _strlen(char *s);
 char *construct_full_path(char *relative_path,char *command);
 char **tokenize_path(char *rep);
 int check_file_exists_and_is_executable(char *file_path);
@@ -43,6 +45,7 @@ void execute_command(char *input, char **env);
 int tokenize_input(char *input, char *args[]);
 int handle_builtin_commands(char **args, int num_args, char *input, char **env);
 void call_and_execute(char *args[]);
+char *append_path(char *path, char *command);
 
 /* GLOBAL VAR*/
 extern char **environ;
